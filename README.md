@@ -1,5 +1,5 @@
 # Fake News Detection:  Experimental Comparison of Machine Learning(ML) and Deep Learning(DL) Approaches
-An experimental comparison of ML(Decision Trees, Support Vector Machines) and DL(Long Short-Term Memory, Convolutional Neural Network) approaches for fake news detection, with analysis of dataset shortcuts and cross-domain generalization failure.
+An experimental comparison of ML(Decision Trees, Support Vector Machines) and DL(Long Short-Term Memory, Convolutional Neural Network) approaches for fake news detection, with analysis of dataset shortcuts and cross-domain generalization failure and computational cost trade-offs.
 
 ## Key Findings
 All models achieved ~99% F1-scores on internal testing. However, when evaluated on the external dataset, all models collapsed to 60-62% F1-score regardless of model complexity, showing that a high in-distribution accuracy does not guarantee real-world generalization.
@@ -21,6 +21,17 @@ The models learned source-specific shortcuts because almost all "real" articles 
 - **Deep Learning**: LSTM, CNN
 
 DL models required **10,000x more training time**, but showed no generalization benefits compared over  ML approaches when tested on external validation.
+
+## Resource Usage
+
+| Model | Training Time | Inference Time | Model Size |
+|-------|---------------|----------------|------------|
+| SVM | 0.5s | 0.003s | 0.04 MB |
+| Decision Tree | 19.8s | 0.008s | 0.01 MB |
+| LSTM | 5256.6s (~87 min) | 57.289s | 9.49 MB |
+| CNN | 26.3s | 1.937s | 8.31 MB |
+
+LSTM required 10,513x more training time than SVM while achieving similar external validation performance (59.8% vs 61.5%).
 
 ## Dataset Used
 
