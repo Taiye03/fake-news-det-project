@@ -3,9 +3,9 @@ An experimental comparison of ML(Decision Trees, Support Vector Machines) and DL
 
 ## Key Findings
 
-| Metric | In-Distribution | External Validation (LIAR) |
-|--------|-----------------|---------------------------|
-| All Models | ~99% accuracy | ~62% accuracy |
+![Model_Comparison](training_vs_liar_comparison.png)
+
+![SVM Top Words](figures/svm_top_words.png)
 
 XAI analysis (feature importance, coefficient analysis, LIME) was conducted to investigate the performance collapse. It was discovered that the "reuters" token dominated predictions across all ML models. In one case, a FAKE article was misclassified as REAL simply because it contained "reuters."
 
